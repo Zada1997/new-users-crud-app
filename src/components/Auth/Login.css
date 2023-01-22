@@ -1,0 +1,39 @@
+.login-page{
+    display: flex;
+    margin: auto;
+    padding-left: 10% ;
+    text-align: center;
+    height: 1000px;
+    align-items: center;
+    background-image: url("https://images4.alphacoders.com/841/thumb-1920-84194.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+.login-wrapper{
+    background-color: rgba(91, 90, 90, 0.449);
+    width: 20%;
+    padding: 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px 5px black;
+
+}
+.login-input{
+    background-color: rgba(255, 255, 255, 0.619);
+    border-radius: 10px;
+}
+#login-btn{
+    width:30%;
+    background-color:rgb(168, 220, 127);
+    color:black;
+    cursor: pointer;
+}
+#login-btn:hover{
+    background-color: rgba(0, 0, 0, 0.786);
+    color:white;
+    transition: 1s;
+}

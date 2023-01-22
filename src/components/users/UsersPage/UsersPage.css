@@ -1,0 +1,48 @@
+.userspage-container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.userspage-container img{
+    width: 100%;
+}
+.grid-header{
+    font-size: large;
+    background-color: rgb(40, 37, 58);
+    color:whitesmoke;
+    width: 100%;
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 0 5px 5px rgb(81, 77, 103);
+
+}
+.grid-body{
+    width: 100%;
+    margin: auto;
+    background-color: azure;
+    padding: 10px;
+    display: flex;
+    text-align: center;
+    font-size: large;
+    box-shadow: 0 0 5px 5px grey;
+}
+.users-btns-wrapper{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+.user-update-btn{
+    background-color:rgba(15, 175, 255, 0.499);
+    color:rgb(13, 13, 26);
+    border: 1px solid rgb(17, 17, 35);
+    margin-bottom: 5px;
+}
+.user-delete-btn{
+    background-color: pink;
+    color:red;
+    border: 1px solid red;
+}
