@@ -3,11 +3,19 @@ import { useDispatch, useSelector } from 'react-redux'
 import { currentUser, deleteUser, selectAllUsers, openUpdateModal} from '../usersRedux/usersSlice'
 import { Button, Grid } from '@mui/material'
 import "./UsersPage.css"
+import { Link } from 'react-router-dom'
+import { fetchBooks, setAuthor } from '../../books/booksRedux/booksSlice'
 
 const UsersPage = ({filteredUsers}) => {
     const users = useSelector(selectAllUsers)
     const loggedinUser = useSelector(currentUser)
     const dispatch = useDispatch()
+
+    const openAuthorBooks = (author) =>{
+      dispatch(fetchBooks(author.id))
+      dispatch(setAuthor(author))
+
+    }
   return (
     <div className='userspage-container'>
     <Grid container spacing={1} className="grid-header">
@@ -30,8 +38,8 @@ const UsersPage = ({filteredUsers}) => {
         Actions
       </Grid>
     </Grid>
-    {(filteredUsers?filteredUsers:users).map(user=>(
-    <Grid container spacing={1} key = {user.id} className = "grid-body">
+    {(filteredUsers.length > 0 ? filteredUsers: users).map(user=>(
+      <Grid container spacing={1}  className = "grid-body"  key = {user.id}>
       <Grid item xs={2}>
         <img src={user.avatar} alt={user.email} />
       </Grid>
@@ -42,7 +50,9 @@ const UsersPage = ({filteredUsers}) => {
         {user.lastname}
       </Grid>
       <Grid item xs={2}>
+      <Link to ="/books" onClick={()=>openAuthorBooks(user)}>
         {user.email}
+      </Link>
       </Grid>
       <Grid item xs={2}>
         {user.birthdate}

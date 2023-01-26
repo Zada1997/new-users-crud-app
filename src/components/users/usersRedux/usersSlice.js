@@ -8,7 +8,6 @@ export const fetchUsers = createAsyncThunk(
     async ()=>{
         const response = await axios.get(api)
         const data = await response.data
-        console.log(data)
         return data
     }
 )
@@ -45,20 +44,15 @@ export const updateUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
     'app/users/deleteUser',
     async (userId)=>{
-        try{
             const response = await axios.delete(api + "/" + userId)
             const data = await response.data
             return data
 
-        }catch(error){
-            console.log(error)
-        }
     }
 )
 const initialState = {
     users: [],
     loggedinUser:{},
-    loading:false,
     status:null,
     error:null,
     access: false,
@@ -80,7 +74,6 @@ const usersSlice = createSlice({
         },
         setSearchText(state, action){
             state.searchText = action.payload
-            console.log(state.searchText)
         },
         addLoggedinUser(state, action){
             state.loggedinUser = action.payload
@@ -124,7 +117,6 @@ const usersSlice = createSlice({
             state.status = "resolved"
             state.users = action.payload
         },
-        [fetchUsers.rejected]:(state,action)=>{},
         [deleteUser.fulfilled]:(state,action)=>{
             state.users.filter(todo => todo.id !== action.payload)
         }
@@ -145,6 +137,7 @@ export const currentUser = (state)=>state.users.loggedinUser
 export const modalUsers = (state)=>state.users.modal
 export const loading = (state)=>state.users.loading
 export const search = (state)=>state.users.searchText
+export const loadingStatus = (state)=>state.users.status
 
 export default usersSlice.reducer
 

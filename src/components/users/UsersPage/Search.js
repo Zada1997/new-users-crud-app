@@ -8,7 +8,7 @@ const Search = ({searchUsers}) => {
   const dispatch = useDispatch()
   return (
     <div>
-        <TextField label="search..." value={text} onChange={e=> dispatch(setSearchText(e.target.value))}/>
+        <TextField label="search..." value={text} onChange={ e => dispatch(setSearchText(e.target.value))}/>
         <Button onClick={()=>searchUsers(text)}>Search</Button>
     </div>
   )
